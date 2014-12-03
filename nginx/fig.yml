@@ -1,0 +1,11 @@
+web:
+    #image: nginx
+    build: .
+    net: "host"
+    ports:
+        - "8001:80"
+    volumes:
+        - ./conf.d:/etc/nginx/conf.d
+        - ./certs:/etc/nginx/certs
+        - ./logs:/var/log/nginx
+        - ./content:/usr/share/nginx/html

@@ -1,0 +1,128 @@
+div.large-date {
+	width: 75px;
+	height: 75px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #E3A20B;
+	padding: 10px 20px;
+	font-size: 45px;
+	font-weight: bold;
+	font-family: sans-serif;
+	color: #fff;
+}
+.seats {
+	font-size: 25px;
+	font-weight:bold;
+}
+
+@media screen and ( max-width: 760px ) {
+  div.seats {
+    font-size: 20px;
+  }
+}
+
+.event {
+	margin-bottom: 20px;
+	padding: 10px 0;
+}
+
+.event-prop {
+	padding: 2px 4px;
+	margin-right: 10px;
+	margin-top: 2px;
+	background-color: #006162;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.month {
+	margin-top: 13px;
+	font-weight: 500;
+	text-align: center;
+	font-size: 18px;
+	max-width: 90px;
+}
+
+.month-value {
+	font-size: 40px;
+	text-align: center;
+	font-weight: 500;
+	max-width: 90px;
+}
+
+.month-frame {
+	background-color: #006162;
+	border-radius: 4px;
+	color: #fff;
+	max-width: 90px;
+}
+
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+/*needed for TL inclusion*/
+div#container::before, div#container::after,
+div#container,
+div.mod_article,
+div.ce_image
+{
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}

@@ -1,0 +1,7 @@
+npm:
+    #image: nodejs
+    build: .
+    command: jsx -w --extension jsx /data/jsx/src /data/jsx/build
+    volumes:
+        - ../nginx/content:/data/jsx/src
+        - ../nginx/content/js:/data/jsx/build
