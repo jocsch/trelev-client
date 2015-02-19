@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var EventManager = React.createClass({displayName: 'EventManager',
+var EventManager = React.createClass({displayName: "EventManager",
 	getInitialState: function() {
 		return { event: null,
 				events: [],
@@ -163,14 +163,14 @@ var EventManager = React.createClass({displayName: 'EventManager',
 		);
 	}
 	});
-var CreateButton = React.createClass({displayName: 'CreateButton',
+var CreateButton = React.createClass({displayName: "CreateButton",
 	render: function() {
 		return (
 			React.createElement("button", {onClick: this.props.onClick, type: "button", className: "btn btn-default"}, "Create new event")
 		);
 	}
 	});
-var ToListButton = React.createClass({displayName: 'ToListButton',
+var ToListButton = React.createClass({displayName: "ToListButton",
 	clearEvent: function() {
 		this.props.onClick(null);
 	},
@@ -180,7 +180,7 @@ var ToListButton = React.createClass({displayName: 'ToListButton',
 		);
 	}
 	});
-var EventList = React.createClass({displayName: 'EventList',
+var EventList = React.createClass({displayName: "EventList",
 	render: function() {
 		var param = this.props;
 		var listNodes = this.props.events.map(function(event) {
@@ -205,7 +205,7 @@ var EventList = React.createClass({displayName: 'EventList',
 		);
 	}
 	});
-var ListedEvent = React.createClass({displayName: 'ListedEvent',
+var ListedEvent = React.createClass({displayName: "ListedEvent",
 	formatDate: function() {
 		var mom = moment(this.props.event.date);
 		return mom.format("DD.MM HH:mm")
@@ -232,7 +232,7 @@ var ListedEvent = React.createClass({displayName: 'ListedEvent',
 		);
 	}
 });
-var EventView = React.createClass({displayName: 'EventView',
+var EventView = React.createClass({displayName: "EventView",
 	getInitialState: function() {
 	/*Always handle the date locally as otherwise it gets reparsed all the time which doesn't work well together with datetime-local*/
 		return {"modeDetail": true, "dt": this.convertDate(this.props.event.date)}
@@ -339,7 +339,7 @@ var EventView = React.createClass({displayName: 'EventView',
 	}
 });
 
-var ParticipantList = React.createClass({displayName: 'ParticipantList',
+var ParticipantList = React.createClass({displayName: "ParticipantList",
 	getInitialState: function() {
 		//console.log("initial state");
 		return {"parts": []}
@@ -405,7 +405,7 @@ var ParticipantList = React.createClass({displayName: 'ParticipantList',
 		);
 	}
 });
-var ParticipantEntry = React.createClass({displayName: 'ParticipantEntry',
+var ParticipantEntry = React.createClass({displayName: "ParticipantEntry",
 	/*formatDate: function() {
 		var mom = moment(this.props.event.date);
 		return mom.format("DD.MM HH:mm")
@@ -429,7 +429,7 @@ var ParticipantEntry = React.createClass({displayName: 'ParticipantEntry',
 	}
 });
 
-var TokenDialog = React.createClass({displayName: 'TokenDialog',
+var TokenDialog = React.createClass({displayName: "TokenDialog",
 	dialogVisible: function() {
 		return this.props.tokenValid == false;
 	},

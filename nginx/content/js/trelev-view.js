@@ -1,6 +1,11 @@
 /** @jsx React.DOM */
-var EventClient = React.createClass({displayName: 'EventClient',
+var EventClient = React.createClass({displayName: "EventClient",
 	getInitialState: function() {
+		moment.locale("de",
+		{
+		    monthsShort : "Jan_Febr_März_April_Mai_Juni_Juli_Aug_Sept_Okt_Nov_Dez".split("_")
+		});
+		moment.locale([window.navigator.language, "en"]);
 		return { event: null,
 				events: []};
 	},
@@ -40,7 +45,7 @@ var EventClient = React.createClass({displayName: 'EventClient',
 	}
 });
 
-var EventView = React.createClass({displayName: 'EventView',
+var EventView = React.createClass({displayName: "EventView",
 	register: function(e) {
 		e.preventDefault();
 		this.props.onRegister(this.props.event);
@@ -71,10 +76,10 @@ var EventView = React.createClass({displayName: 'EventView',
 				React.createElement("div", {className: "col-xs-3 col-sm-2 col-md-1"}, 
 					React.createElement("div", {className: "month-frame"}, 
 						React.createElement("div", {className: "month"}, 
-							"Dez"
+							this.props.event.date.format("MMM")
 						), 
 						React.createElement("div", {className: "month-value"}, 
-							this.props.event.date.format("DD")	
+							this.props.event.date.format("DD")
 						)
 					)
 				), 
@@ -104,7 +109,7 @@ var EventView = React.createClass({displayName: 'EventView',
 	}	
 });
 
-var RegisterDialog = React.createClass({displayName: 'RegisterDialog',
+var RegisterDialog = React.createClass({displayName: "RegisterDialog",
 	getInitialState: function() {
 		return { 	"closed:" : false,
 					"result" : null,
@@ -233,7 +238,7 @@ var RegisterDialog = React.createClass({displayName: 'RegisterDialog',
 					React.createElement("div", {className: "form-group"}, 
 						React.createElement("label", {className: "col-sm-3", htmlFor: "entourage.adults"}, "Erwachsene"), 
 						React.createElement("div", {className: "col-sm-2"}, 
-							React.createElement("select", {id: "entourage.adults", 'data-type': "number", className: "form-control", value: this.state.participant.entourage.adults, onChange: this.handleChange}, 
+							React.createElement("select", {id: "entourage.adults", "data-type": "number", className: "form-control", value: this.state.participant.entourage.adults, onChange: this.handleChange}, 
 								options
 							)
 						)
@@ -241,7 +246,7 @@ var RegisterDialog = React.createClass({displayName: 'RegisterDialog',
 					React.createElement("div", {className: "form-group"}, 
 						React.createElement("label", {className: "col-sm-3", htmlFor: "entourage.children"}, "Kinder"), 
 						React.createElement("div", {className: "col-sm-2"}, 
-							React.createElement("select", {id: "entourage.children", 'data-type': "number", className: "form-control", value: this.state.participant.entourage.children, onChange: this.handleChange}, 
+							React.createElement("select", {id: "entourage.children", "data-type": "number", className: "form-control", value: this.state.participant.entourage.children, onChange: this.handleChange}, 
 								options
 							)
 						)
@@ -251,11 +256,11 @@ var RegisterDialog = React.createClass({displayName: 'RegisterDialog',
 		var responseBody = this.state.result != null ? React.createElement("div", null, this.state.result.message) : "";
 
 		var formBtns = React.createElement("div", {className: "modal-footer"}, 
-        React.createElement("button", {type: "button", onClick: this.hideDialog, className: "btn btn-default", 'data-dismiss': "modal"}, "Zurück"), 
+        React.createElement("button", {type: "button", onClick: this.hideDialog, className: "btn btn-default", "data-dismiss": "modal"}, "Zurück"), 
 		React.createElement("button", {type: "submit", className: "btn btn-success"}, "Anmelden")
 	   )
 	   var successBtns = React.createElement("div", {className: "modal-footer"}, 
-        React.createElement("button", {type: "button", onClick: this.hideDialog, className: "btn btn-default", 'data-dismiss': "modal"}, "Schliessen")
+        React.createElement("button", {type: "button", onClick: this.hideDialog, className: "btn btn-default", "data-dismiss": "modal"}, "Schliessen")
 	   )
 
 		return (
@@ -263,7 +268,7 @@ React.createElement("div", {className: this.dialogVisible()?'modal fade in':'mod
   React.createElement("div", {className: "modal-dialog"}, 
     React.createElement("div", {className: "modal-content"}, 
       React.createElement("div", {className: "modal-header"}, 
-        React.createElement("button", {type: "button", className: "close", onClick: this.hideDialog, 'data-dismiss': "modal"}, React.createElement("span", {'aria-hidden': "true"}, "×"), React.createElement("span", {className: "sr-only"}, "Close")), 
+        React.createElement("button", {type: "button", className: "close", onClick: this.hideDialog, "data-dismiss": "modal"}, React.createElement("span", {"aria-hidden": "true"}, "×"), React.createElement("span", {className: "sr-only"}, "Close")), 
         React.createElement("h4", {className: "modal-title"}, "Anmeldung für \"", this.props.event?this.props.event.title:"", "\"")
       ), 
 		React.createElement("form", {className: "form-horizontal", role: "form", ref: "form", onSubmit: this.registerParticipant}, 

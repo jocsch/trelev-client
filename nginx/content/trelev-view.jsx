@@ -1,6 +1,11 @@
 /** @jsx React.DOM */
 var EventClient = React.createClass({
 	getInitialState: function() {
+		moment.locale("de",
+		{
+		    monthsShort : "Jan_Febr_März_April_Mai_Juni_Juli_Aug_Sept_Okt_Nov_Dez".split("_")
+		});
+		moment.locale([window.navigator.language, "en"]);
 		return { event: null,
 				events: []};
 	},
@@ -71,10 +76,10 @@ var EventView = React.createClass({
 				<div className="col-xs-3 col-sm-2 col-md-1">
 					<div className="month-frame">
 						<div className="month">
-							Dez
+							{this.props.event.date.format("MMM")}
 						</div>
 						<div className="month-value">
-							{this.props.event.date.format("DD")}	
+							{this.props.event.date.format("DD")}
 						</div>
 					</div>
 				</div>
