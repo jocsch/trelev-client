@@ -447,7 +447,7 @@ var TokenDialog = React.createClass({
 			<div className="modal-body">
 				<p>You need to enter a valid token to access some of the functionality</p>
 				<label htmlFor="token">Token</label>
-				<input type="text" className="form-control" id="token" value={this.props.token} onChange={this.props.onTokenUpdate} />
+				<input type="password" className="form-control" id="token" value={this.props.token} onChange={this.props.onTokenUpdate} />
 			</div>
 			<div className="modal-footer">
 				<button type="submit" className="btn btn-primary">Submit</button>
