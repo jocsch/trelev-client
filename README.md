@@ -26,6 +26,9 @@ So if you want to start the client, run
 
 in the `nginx` directory.
 
+Afterwards you can point the browser towards http://<boot2dockerip>/edit.html 
+You can find the boot2docker ip by running: boot2docker ip
+
 If you want to compile the JSX files into JS, run
 
 `fig up`
