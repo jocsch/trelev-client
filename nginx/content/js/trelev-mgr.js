@@ -76,7 +76,7 @@ var EventManager = React.createClass({displayName: "EventManager",
 		 if (event.id != null) {
 			url = url + "/" + event.id;
 			method = "PUT";
-			event.informParticipants = false;
+			event.informParticipants = true;
 		 }
 		 $.ajax({
 				url: url,
@@ -102,7 +102,7 @@ var EventManager = React.createClass({displayName: "EventManager",
 	},
 	deleteEvent: function(id) {
 		 $.ajax({
-				url: trelev.url + "/api/organisation/x/events/" + id,
+				url: trelev.url + "/api/organisation/x/events/" + id + "?inform=true",
 				type: 'DELETE',
 				headers: {"Authorization": this.state.token},
 				success: function(data) {
