@@ -387,21 +387,27 @@ var ParticipantList = React.createClass({
 		var plist = this.state.parts.map(function(p){
 			return <ParticipantEntry part={p} onDelete={this.deleteParticipant} key={p.email}/>
 		}.bind(this));
+		var pelist = "mailto:" + this.state.parts.map(function(p) {
+			return p.email;
+		}).join(",");
 		return (
-			<table className="table">
-			<thead>
-				<tr>
-					<th> Name </th>
-					<th> E-mail </th>
-					<th> Adults </th>
-					<th> Children </th>
-					<th> </th>
-				</tr>
-			</thead>
-			<tbody>
-				{plist}
-			</tbody>
-			</table>
+			<div>
+				<a href={pelist}><button type="button" className="btn btn-default">Mail to all participants</button></a>
+				<table className="table">
+				<thead>
+					<tr>
+						<th> Name </th>
+						<th> E-mail </th>
+						<th> Adults </th>
+						<th> Children </th>
+						<th> </th>
+					</tr>
+				</thead>
+				<tbody>
+					{plist}
+				</tbody>
+				</table>
+			</div>
 		);
 	}
 });

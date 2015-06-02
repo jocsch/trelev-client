@@ -387,20 +387,26 @@ var ParticipantList = React.createClass({displayName: "ParticipantList",
 		var plist = this.state.parts.map(function(p){
 			return React.createElement(ParticipantEntry, {part: p, onDelete: this.deleteParticipant, key: p.email})
 		}.bind(this));
+		var pelist = "mailto:" + this.state.parts.map(function(p) {
+			return p.email;
+		}).join(",");
 		return (
-			React.createElement("table", {className: "table"}, 
-			React.createElement("thead", null, 
-				React.createElement("tr", null, 
-					React.createElement("th", null, " Name "), 
-					React.createElement("th", null, " E-mail "), 
-					React.createElement("th", null, " Adults "), 
-					React.createElement("th", null, " Children "), 
-					React.createElement("th", null, " ")
+			React.createElement("div", null, 
+				React.createElement("a", {href: pelist}, React.createElement("button", {type: "button", className: "btn btn-default"}, "Mail to all participants")), 
+				React.createElement("table", {className: "table"}, 
+				React.createElement("thead", null, 
+					React.createElement("tr", null, 
+						React.createElement("th", null, " Name "), 
+						React.createElement("th", null, " E-mail "), 
+						React.createElement("th", null, " Adults "), 
+						React.createElement("th", null, " Children "), 
+						React.createElement("th", null, " ")
+					)
+				), 
+				React.createElement("tbody", null, 
+					plist
 				)
-			), 
-			React.createElement("tbody", null, 
-				plist
-			)
+				)
 			)
 		);
 	}
